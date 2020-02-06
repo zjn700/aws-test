@@ -29,7 +29,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ---
 
-## A few other tasksi had to perform
+## A few other tasks had to perform
 
 ## On AWS
 	- Had to add RAM. 512 MB was too small to compile an Angular app 
@@ -42,10 +42,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 	
 ## On iPad
 	- Added the following apps
-		- Blink: terminal with SSH and MOSH (for sturdier connections on mobile)
-		- Working Copy: git client with an editor
-		- Textastic: Code editor with its own terminals and SSH connectivity
-	- 
+		- Blink: terminal with SSH and MOSH (for sturdier connections on mobile). $20 
+			- (update) found a little server tool called "screen" that elimates the need for blink. Run it when you first log in to AWS and you cannot reconnect disconnected terminals
+			- screen -ls to list screens, screen -r [screenID] to reattach a detached screen
+			-  Blink was not a complete waste because I used it to create the ssh keys
+		- Working Copy: git client with an editor. $2
+		- Textastic: Code editor with its own terminals and SSH connectivity. $10
+		- (update) Inspect: addes a browser that has some (but not all) dev tools. Essential for web apps. $6
 	
 ## On AWS instance installed
 	- nvm (for node and npm)
@@ -60,6 +63,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Running Angular app from Ubuntu server
 	- This works:
 		ng serve --port 4200 --disable-host-check
+	- Note: occasionally need to reboot this server, fortunately its url does not change
 		
 ## SSH required a few iterations to get right (royal pain in the ass)
 	- Ended up using the keys created on the Blink app
@@ -69,11 +73,14 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ##  NOTES 
 	- Some issues with Blink, mosh, and ngrok
 		- ngrok would not run in the background
-		- fortunately Blink allows multiple windows, but only one mosh connection
+		- fortunately Blink allows multiple windows, but only one mosh connection. (update) not using Blink at this time (see above)
 		-  Blink freezes occasionally and leaves a zombie process running on the server. Had to reboot the AWS server to reset
 	- It's possible to edit files pulled from Github to Working Copy in Textastic, but then it's a two or three step process to run them on the server: 
-		- Switch to WorkingCooy to push the changes to Github.
+		- Switch to WorkingCopy to push the changes to Github.
 		- Then switch back to Textastic to merge the changes on Github with the files on the AWS server
+		
+			git pull origin master
+			
 		- If watch is not enabled on the ng server, then restart it
 	- This is not ideal, but it works!
 	
